@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+	<body>
+	
+		<style>
+			body {
+				background-color: #014576;
+			}
+		</style>
+		
+		<font face="Calibri">
+
+			<div align="center">
+				<table style="background:white;" width="75%">
+					<tr>
+						<td align="center">
+							<font size="30">Kevin Payravi</font>
+							<h3>Personal Bio and Resume</h3>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</font>
+
+	</body>
+</html>
