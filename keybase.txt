@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/kevinpayravi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.kevinpayravi.com
+  * I am kevinpayravi (https://keybase.io/kevinpayravi) on keybase.
+  * I have a public key with fingerprint FFA4 54E5 2C80 B519 F7B7  3EC5 A279 B2E6 8E5C 2BB1
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "ffa454e52c80b519f7b73ec5a279b2e68e5c2bb1",
+            "host": "keybase.io",
+            "key_id": "a279b2e68e5c2bb1",
+            "kid": "0101cb43d76d2994e83c3c86af90acf2fa97f3c67a262f1cd68de29170b7bcc1cfc30a",
+            "uid": "a1be4a98a0f5f00b21ab5f2dc21e2819",
+            "username": "kevinpayravi"
+        },
+        "service": {
+            "hostname": "www.kevinpayravi.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1429304886,
+    "expire_in": 157680000,
+    "prev": "1390470b83b5569f76f8be095cd29fa28ddb213b7eb9390f8a33a18722b91dbb",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.8
+Comment: https://keybase.io/crypto
+
+yMIhAnicbZJZSFVBGMevtrikmT1kPpRwKqiQy5k561wrW6CyhQRpo+A2M2dGT+Y5
+13uv92YiIRWEJPUgSWBIm6ASWmRERYtkCylaZD5IK1mgQURRtGFzzKCH5mWY7/t9
+/2+Z7076JF9qQmdfjlrWnbkm4eHtjRW+zSCmV0nEtSqlQJVUysYvbjvFLBwK205U
+CkicY1VTmQapKRMNIG4QQ2FUw9BABDLdZBqFhAApVypxI16EkCE4wvy2K2ziEbQt
+Yf0PXzrukIEMKFEVy9AtiJDKTIUq1NQxRzKmHHKMDK5Q3cBQhxxQSzctBhEwZGIQ
+SgHlVJGxkKv4kwcQpmJkYplrXJYJBJhoHFoUAgZNgDwwwsIOLmPjtcZsJ4Qrwzhm
+S9W5kvDEbMq8MXjdTFDxeNz/L+mnbpnQCYXdqEvdPYIoiUZDkYCnEK0MjYcwEpwQ
+CxLbscRMRUSMhSO260gBIEgatT11oEKkyKpp6rkS2xuywyxoe4Rm6KYsjpeHxYQk
+UJCsiq5NhWiaLj5C5yZhMtKomBvH0LQs0a1CDEaQQLmJFQUD04CQIGARInntlTuu
+FNBEmbhYSEbsYgdHK8JMqu66tXOyLyHVN3VKorcVvtSUGX93pTU72VeTNCgtRIGn
+PelWU5t1rcZfcad895Pp83c+Gim8kb9p1vZzaasaGksO9veUZiwsm5lYOTzvRHNw
+8dENH0YHh4Jo2ulFWlN7VsZYYsGgVfNjN2q9VFSwvvBZ89tTC9YVvknrfHNz/9yU
+A9bz4w9GztR9rDv57cKsl8mnd51PAfGkpQM7+lbYF652dFzOe/dlhd2ot4B0tKTe
+9yrzy8G1v7ZGsuekHMiO++m+bXioYEpNS/3r/CtojTP7e97rppV3Qx2PM/nhH21p
+97Z0H1uWk1F9v2vO+5b+rwMra4fPNnwea+99stqoG6otun7oYnrui9pHDQOtjdGu
+T83+I1nVo70/l1/CS2t/A8TFLUM=
+=FcAQ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kevinpayravi
+
+==================================================================
