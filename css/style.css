@@ -8,12 +8,20 @@
 			a:active {text-decoration:none;}
 			a.special:link{color:#949494;}
 			a.special:visited{color:#949494;}
-			a.special:hover{color:#7E91AE;}
+			a.special:hover{color:#59C4C5;}
 			a.special:active{color:#949494;}
 			a.special:link{text-decoration:none;}
 			a.special:visited{text-decoration:none;}
 			a.special:hover{text-decoration:none;}
 			a.special:active{text-decoration:none;}
+			a.bg-link:link{color:#59C4C5;}
+			a.bg-link:visited{color:#59C4C5;}
+			a.bg-link:hover{color:#949494;}
+			a.bg-link:active{color:#59C4C5;}
+			a.bg-link:link{text-decoration:none;}
+			a.bg-link:visited{text-decoration:none;}
+			a.bg-link:hover{text-decoration:none;}
+			a.bg-link:active{text-decoration:none;}
 			body {
 				background-color: #E1E2E1;
 				font-family: Calibri, Arial;
@@ -51,6 +59,7 @@
 			}
 			.padder {
 				padding: 20px;
+				padding-top: 5px;
 			}
 			.circle{
 				font-size: 16px;
@@ -85,5 +94,6 @@
 				color: #FFFFFF;
 			}
 			h3 {
+				font-size: 1.5em;
 				color: #5E6B88;
 			}
