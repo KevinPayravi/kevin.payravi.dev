@@ -48,6 +48,9 @@
 			.top {
 				box-shadow: 0px 2px 4px #888888;
 				background-color: #59C4C5;
+				font-size: 1.5em;
+				line-height: 1.5em;
+				color: #FFFFFF;
 				width: 100%;
 				text-align: center;
 			}
