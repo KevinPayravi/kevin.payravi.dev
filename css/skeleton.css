@@ -40,6 +40,10 @@
   width: 100%;
   float: left;
   box-sizing: border-box;}
+#navRowMobile {
+    display: flex; }
+#navRowMain{
+    display: none; }
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
