@@ -46,10 +46,18 @@
   .container {
     width: 85%;
     padding: 0; }
+  #navRowMobile {
+    display: flex; }
+  #navRowMain{
+    display: none; }
 }
 
 /* For devices larger than 550px */
 @media (min-width: 1000px) {
+  #navRowMobile {
+    display: none; }
+  #navRowMain{
+    display: flex; }
   .row {
     display: -ms-flexbox; display: -webkit-flex; display: flex; }
   .container {
