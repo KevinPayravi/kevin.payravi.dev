@@ -161,6 +161,9 @@ ul,
 ol,
 form {
   margin-bottom: 0rem; }
+  
+ul {
+  list-style-type: none; }
 
 
 /* Utilities
