@@ -47,6 +47,8 @@
   .container {
     width: 85%;
     padding: 0; }
+  #mainPageContent {
+	margin-top: 10%; }
 }
 
 /* For devices larger than 1000px */

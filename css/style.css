@@ -101,11 +101,6 @@ a.bg-link:active{text-decoration:none;}
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
-.page-centered {
-	display: flex;
-    align-items: center;
-    height: 80%;
-}
 .nav-link {
 	display:inline;
 	padding-left:10px;
