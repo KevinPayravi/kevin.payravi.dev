@@ -116,6 +116,9 @@ a.bg-link:active{text-decoration:none;}
 .line-margins {
 	line-height: 140%;
 }
+.gray {
+	color: #7F7F7F;
+}
 
 a.popbox img {
 	border: none;
@@ -170,6 +173,9 @@ hr {
 p {
 	line-height: 110%;
 	margin: 7px;
+}
+p.indented {
+	margin: 7px 7px 7px 20px;
 }
 p a:link{color: #4078C0;}
 p a:visited{color: #4078C0;}
