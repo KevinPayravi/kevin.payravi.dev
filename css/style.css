@@ -92,7 +92,7 @@ a:active {text-decoration:none;}
 }
 
 .indented {
-	margin-left: 20px;
+	margin-left: 25px;
 }
 
 a.popbox img {
@@ -119,6 +119,10 @@ a.popbox:hover img {
 	transform: scale(1.03,1.03);
 }
 
+.container b {
+	color: #373435;
+}
+
 h1 {
 	color: #373435;
 	font-size: 3em;
@@ -139,7 +143,7 @@ h4 {
 	color: #373435;
 	font-size: 1.2em;
 	font-weight: 600;
-	margin: 5px 2px;
+	margin: 2px;
 }
 
 ul {
