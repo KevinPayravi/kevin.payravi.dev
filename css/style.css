@@ -31,8 +31,6 @@ a:active {text-decoration:none;}
 .nav-link.selected {
 	border-radius: 5px;
 	background: #eaeeff;
-}
-.nav-link.selected a {
 	color: #304C91;
 }
 
