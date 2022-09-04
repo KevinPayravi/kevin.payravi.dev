@@ -127,9 +127,13 @@ a:active {text-decoration:none;}
 	padding: 4px;
 }
 
-.desc-toolset {
+.toolset {
+	float: right;
 	color: #4A4D50;
-	padding-left: 15px;
+	background: #DCDCDC;
+	border-radius: 5px;
+	padding: 4px 10px;
+	font-size: .85em;
 }
 .desc {
 	padding-left: 15px;
@@ -183,7 +187,7 @@ h3 {
 	color: #373435;
 	font-size: 1.5em;
 	line-height: 1.2em;
-	margin: 2px;
+	margin: 5px 2px;
 }
 h4, .h3-small {
 	color: #373435;
