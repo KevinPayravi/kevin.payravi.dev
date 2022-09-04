@@ -122,17 +122,25 @@ a:active {text-decoration:none;}
 	box-sizing: border-box;
 	width: 100%;
 }
+@media (max-width: 850px) {
+	.white-box {
+		text-align: center;
+	}
+}
 
+.fa {
+	display: inline !important;
+}
 .fa-2x {
 	padding: 4px;
 }
 
 .toolset {
-	float: right;
 	color: #4A4D50;
 	background: #DCDCDC;
 	border-radius: 5px;
 	padding: 4px 10px;
+	margin: 0px 0px 10px 0px;
 	font-size: .85em;
 }
 .desc {
@@ -144,6 +152,18 @@ a:active {text-decoration:none;}
 
 .indented {
 	margin-left: 25px;
+}
+
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
+@media (max-width: 850px) {
+	.mobile-float-none {
+		float: none;
+	}
 }
 
 a.popbox img {
@@ -213,6 +233,7 @@ hr {
 p {
 	line-height: 110%;
 	margin: 7px;
+	clear: both;
 }
 p a:link{color: #4078C0;}
 p a:visited{color: #4078C0;}
