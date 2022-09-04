@@ -41,13 +41,22 @@ a:active {text-decoration:none;}
 	transform: translate(-50%, -50%);
 	width: 75%;
 }
+@media (max-width: 850px) {
+	.splash {
+		position: relative;
+		top: auto;
+		left: auto;
+		transform: none;
+		margin-top: 40px;
+	}
+}
 .two-columns {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-row-gap: 1em;
 	grid-column-gap: 1em;
 }
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 	.two-columns {
 		grid-template-columns: 100%;
 	}
