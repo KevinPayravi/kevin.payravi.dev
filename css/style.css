@@ -126,6 +126,9 @@ a:active {text-decoration:none;}
 	.white-box {
 		text-align: center;
 	}
+	.white-box > div {
+		margin: 0 auto;
+	}
 }
 
 .fa {
@@ -143,9 +146,12 @@ a:active {text-decoration:none;}
 	margin: 0px 0px 10px 0px;
 	font-size: .85em;
 }
-.desc {
-	padding-left: 15px;
+@media (max-width: 850px) {
+	.toolset {
+		width: fit-content;
+	}
 }
+
 .line-margins {
 	line-height: 140%;
 }
