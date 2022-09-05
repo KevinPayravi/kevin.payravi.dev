@@ -5,13 +5,26 @@ body, html {
 	margin: 0 auto;
 }
 
+nav {
+	position: relative;
+	box-shadow: 0px 2px 4px #888888;
+	background-color: #304C91;
+	color: #FFFFFF;
+	font-size: 1em;
+	line-height: 1em;
+	text-align: center;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 a:link {color:#304C91;}
 a:visited {color:#304C91;}
 a:hover {color:#E56B2F;}
 a:active {color:#373435;}
 a:link {text-decoration:none;}
 a:visited {text-decoration:none;}
-a:hover {text-decoration:none;}
+a:hover {text-decoration:underline;}
 a:active {text-decoration:none;}
 .nav-link a:link {color:#FFFFFF;}
 .nav-link a:visited {color:#FFFFFF;}
@@ -96,18 +109,6 @@ a:active {text-decoration:none;}
     overflow: auto;
     position: absolute;
     width: auto;
-}
-#nav-bar {
-	position: relative;
-	box-shadow: 0px 2px 4px #888888;
-	background-color: #304C91;
-	color: #FFFFFF;
-	font-size: 1em;
-	line-height: 1em;
-	text-align: center;
-	width: 100%;
-	padding-top: 20px;
-	padding-bottom: 20px;
 }
 .nav-link {
 	display: inline-block;
