@@ -18,14 +18,14 @@ nav {
 	padding-bottom: 20px;
 }
 
-a:link {color:#304C91;}
+a:link {
+	color:#304C91;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+}
 a:visited {color:#304C91;}
 a:hover {color:#E56B2F;}
 a:active {color:#373435;}
-a:link {text-decoration:none;}
-a:visited {text-decoration:none;}
-a:hover {text-decoration:underline;}
-a:active {text-decoration:none;}
 .nav-link a:link {color:#FFFFFF;}
 .nav-link a:visited {color:#FFFFFF;}
 .nav-link a:hover {color:#E56B2F;}
@@ -242,7 +242,3 @@ p {
 	margin: 7px;
 	clear: both;
 }
-p a:link{color: #4078C0;}
-p a:visited{color: #4078C0;}
-p a:hover {color: #E56B2F;}
-p a:active {color: #4078C0;}
