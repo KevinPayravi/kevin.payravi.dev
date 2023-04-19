@@ -144,6 +144,7 @@ a:active {color:#373435;}
 	flex-wrap: wrap;
 	color: #4A4D50;
 	font-size: .85em;
+	margin-left: 1em;
 }
 .tool {
 	color: #4A4D50;
@@ -163,7 +164,7 @@ a:active {color:#373435;}
 }
 
 .indented {
-	margin-left: 25px;
+	margin-left: 1.8em;
 }
 
 .float-left {
@@ -238,7 +239,7 @@ ul li {
 hr {
 	background-image: linear-gradient(to right, #E1E2E1, #304C91, #E1E2E1);
 	border: 0;
-	margin-bottom: 25px;
+	margin-bottom: 1.8em;
 	height: 1px;
 }
 
