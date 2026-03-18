@@ -395,6 +395,11 @@ h3 {
   letter-spacing: -0.02em;
 }
 
+h3 a[title] {
+  text-decoration: none;
+  margin-left: 0.6rem;
+}
+
 h3 a i {
   font-size: 0.75em;
   vertical-align: middle;
