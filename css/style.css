@@ -822,4 +822,16 @@ footer .social-icons-compact {
   .project-grid > div {
     padding: 1.75rem 1.5rem;
   }
+
+  .indented {
+    margin-left: 0.75em;
+  }
+
+  .contents .indented {
+    margin-left: 0.75rem;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+  }
 }
