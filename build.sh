@@ -20,9 +20,16 @@ mkdir -p "$BUILD_DIR"
 
 # Read template files
 echo "Loading templates..."
-readonly HEAD_TEMPLATE=$(cat "$TEMPLATES_DIR/head.html")
-readonly NAV_TEMPLATE=$(cat "$TEMPLATES_DIR/nav.html")
-readonly FOOTER_TEMPLATE=$(cat "$TEMPLATES_DIR/footer.html")
+TEMPLATE_FILES=()
+for template_file in "$TEMPLATES_DIR"/*.html; do
+    if [[ -f "$template_file" ]]; then
+        template_name=$(basename "$template_file" .html)
+        TEMPLATE_FILES+=("$template_name")
+        # Export each template with a safe name
+        export "TEMPLATE_${template_name}=$(cat "$template_file")"
+        echo "  Loaded: $template_name"
+    fi
+done
 
 # Function to get depth of file (for path calculation)
 get_depth() {
@@ -83,13 +90,17 @@ process_file() {
     # Read source file
     local -r content=$(cat "$src_file")
     
-    # Prepare templates with variables
-    local head_replaced="$HEAD_TEMPLATE"
+    # Process head template
+    local head_var="TEMPLATE_head"
+    local head_replaced="${!head_var}"
     head_replaced="${head_replaced//\{\{FAVICON_PATH\}\}/$favicon_path}"
     head_replaced="${head_replaced//\{\{CSS_PATH\}\}/$css_path}"
     head_replaced="${head_replaced//\{\{BASE_PATH\}\}/$base_path}"
+    export TEMPLATE_head_PROCESSED="$head_replaced"
     
-    local nav_replaced="$NAV_TEMPLATE"
+    # Process nav template
+    local nav_var="TEMPLATE_nav"
+    local nav_replaced="${!nav_var}"
     nav_replaced="${nav_replaced//\{\{BASE_PATH\}\}/$base_path}"
     nav_replaced="${nav_replaced//\{\{CSS_PATH\}\}/$css_path}"
     
@@ -103,24 +114,31 @@ process_file() {
     if [[ "$active_section" != "NONE" ]]; then
         nav_replaced="${nav_replaced//\{\{${active_section}_ACTIVE\}\}/selected\" aria-current=\"page}"
     fi
+    export TEMPLATE_nav_PROCESSED="$nav_replaced"
     
-    # Export templates for Perl to access via environment
-    HEAD_TEMPLATE_PROCESSED="$head_replaced"
-    NAV_TEMPLATE_PROCESSED="$nav_replaced"
-    FOOTER_TEMPLATE_PROCESSED="$FOOTER_TEMPLATE"
-    export HEAD_TEMPLATE_PROCESSED NAV_TEMPLATE_PROCESSED FOOTER_TEMPLATE_PROCESSED
+    # Export template names list (space-separated)
+    export TEMPLATE_NAMES="${TEMPLATE_FILES[*]}"
     
-    # Replace data-template attributes and HTML comments using Perl
+    # Replace data-template attributes dynamically using Perl
     echo "$content" | perl -0777 -pe '
-        # Get templates from shell environment
-        my $head = $ENV{HEAD_TEMPLATE_PROCESSED};
-        my $nav = $ENV{NAV_TEMPLATE_PROCESSED};
-        my $footer = $ENV{FOOTER_TEMPLATE_PROCESSED};
+        # Get template names from environment
+        my @template_names = split(/ /, $ENV{TEMPLATE_NAMES});
         
-        # Replace data-template attributes
-        s|<div[^>]*data-template=["'"'"']head["'"'"'][^>]*>.*?</div>|$head|gs;
-        s|<nav[^>]*data-template=["'"'"']nav["'"'"'][^>]*>.*?</nav>|$nav|gs;
-        s|<footer[^>]*data-template=["'"'"']footer["'"'"'][^>]*>.*?</footer>|$footer|gs;
+        # Replace each template dynamically
+        foreach my $name (@template_names) {
+            # Check if there is a processed version first (for head/nav)
+            my $template_content = $ENV{"TEMPLATE_${name}_PROCESSED"};
+            # Fall back to original if no processed version exists
+            $template_content = $ENV{"TEMPLATE_$name"} unless $template_content;
+            
+            # Determine the appropriate HTML tag for this template
+            my $tag = "div";
+            $tag = "nav" if $name eq "nav";
+            $tag = "footer" if $name eq "footer";
+            
+            # Replace the template placeholder
+            s|<$tag[^>]*data-template=["'"'"']$name["'"'"'][^>]*>.*?</$tag>|$template_content|gs;
+        }
     ' > "$dest_file"
     
     echo "Built: $dest_file"

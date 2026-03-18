@@ -1,62 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
+  <head>
+    <title>Kevin Payravi</title>
 
-<head>
-	<title>Kevin Payravi</title>
+    <div data-template="head"></div>
+  </head>
 
-	<div data-template="head"></div>
-</head>
+  <body>
+    <nav data-template="nav"></nav>
 
-<body>
-	<div id="particles-js"
-		style="background-color: #304c91; width:100%; height: 100vh; overflow-y: hidden; position: absolute; z-index: 0;">
-	</div>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <img src="images/mug_shot_sm.png" alt="Kevin Payravi" />
+          <div data-template="social"></div>
+        </div>
 
-	<nav data-template="nav"></nav>
+        <div class="hero-right">
+          <h1 id="hero-title">Kevin Payravi</h1>
 
-	<main class="contents splash">
-		<div class="two-columns">
-			<div class="column center">
-				<img src="images/mug_shot_sm.png" style="max-width:100%; height:auto;"
-					alt="Kevin Payravi's magnificent face">
-			</div>
-			<div class="column center">
-				<h1>Kevin Payravi</h1>
-				<br />
-				<a href="https://payravi.xyz/@kevin" title="Kevin's Mastodon profile" rel="me"><i
-						class="fa-brands fa-mastodon fa-2x" aria-hidden="true"></i><span
-						class="visible-hidden">Mastodon</span></a>
-				<a href="https://twitter.com/KevinPayravi" title="Kevin's Twitter profile"><i
-						class="fa-brands fa-twitter fa-2x" aria-hidden="true"></i><span
-						class="visible-hidden">Twitter</span></a>
-				<a href="https://www.linkedin.com/in/kevinpayravi/" title="Kevin's LinkedIn profile"><i
-						class="fa-brands fa-linkedin fa-2x" aria-hidden="true"></i><span
-						class="visible-hidden">LinkedIn</span></a>
-				<a href="https://en.wikipedia.org/wiki/User:SuperHamster" title="Kevin's Wikipedia profile"><i
-						class="fa-brands fa-wikipedia-w fa-2x" aria-hidden="true"></i><span
-						class="visible-hidden">Wikipedia</span></a>
-				<a href="https://github.com/KevinPayravi" title="Kevin's GitHub profile"><i
-						class="fa-brands fa-github fa-2x" aria-hidden="true"></i><span
-						class="visible-hidden">GitHub</span></a>
-				<br /><br />
-				<p class="line-margins">
-					Software Engineer
-					<br />
-					Board Member @ Wikimedia DC
-					<br />
-					Wikimedia Movement contributor
-				</p>
-			</div>
-		</div>
-	</main>
+          <p>
+            Software engineer, event organizer, and photographer, working on
+            projects contributing to the free knowledge ecosystem.
+          </p>
 
-	<script src="scripts/particles.min.js"></script>
-	<script>
-		particlesJS.load('particles-js', 'scripts/particles.json', function() {
-			console.log('callback - particles.js config loaded');
-		});
-	</script>
-</body>
+          <div>
+            <a href="portfolio/" class="cta-button cta-primary">View My Work</a>
+            <a href="contact/" class="cta-button cta-secondary">Get In Touch</a>
+          </div>
+        </div>
+      </section>
 
+      <!-- Featured Projects -->
+      <section aria-labelledby="featured-projects">
+        <h2 id="featured-projects">Featured Projects</h2>
+
+        <div class="project-grid">
+          <div>
+            <div>
+              <h3><a href="https://getindie.wiki/">Indie Wiki Buddy</a></h3>
+            </div>
+            <p>
+              A browser extension helping users discover and support independent
+              wikis. Redirects from corporate wiki farms to community-run
+              alternatives, with 150,000+ active users.
+            </p>
+          </div>
+
+          <div>
+            <div>
+              <h3>
+                <a href="https://meta.wikimedia.org/wiki/Cite_Unseen"
+                  >Cite Unseen</a
+                >
+              </h3>
+            </div>
+            <p>
+              A tool for discovering highly-cited Wikipedia sources that lack
+              articles. Helps researchers and editors identify important topics
+              to cover, improving knowledge accessibility.
+            </p>
+          </div>
+
+          <div>
+            <div>
+              <h3>
+                <a href="https://commons.gallery/">Commons Gallery</a>
+              </h3>
+            </div>
+            <p>
+              An elegant image gallery gadget for Wikimedia Commons. Provides an
+              enhanced browsing experience with lightbox functionality and
+              intuitive navigation for category pages.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem">
+          <a href="portfolio/" class="cta-button cta-secondary"
+            >View All Projects</a
+          >
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
