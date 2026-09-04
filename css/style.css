@@ -690,11 +690,6 @@ a.cta-secondary:hover {
   margin: 0.25rem 0 0.5rem 0;
 }
 
-.skills,
-.skills li {
-  list-style: none;
-  padding-left: 0;
-}
 
 .print-only {
   display: none;
@@ -871,9 +866,6 @@ a.cta-secondary:hover {
     line-height: inherit;
   }
 
-  .skills li {
-    list-style: none;
-  }
 
   h2 {
     display: block;
