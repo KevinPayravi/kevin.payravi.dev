@@ -141,14 +141,9 @@ a:active {
   color: var(--vhs-black);
 }
 
-h3 a,
-a.big-text {
-  color: var(--vhs-red);
-}
-
-h3 a:hover,
-a.big-text:hover {
-  color: var(--vhs-maroon);
+/* No decoration for icon links */
+a:has(> i:first-child) {
+  text-decoration: none;
 }
 
 /* Layout Containers */
@@ -158,14 +153,12 @@ a.big-text:hover {
   margin: 0 auto;
 }
 
-.contents p,
-.contents ul,
-.contents .indented {
-  max-width: var(--measure);
+/* Text-only pages (max width) */
+.contents.prose {
+  max-width: calc(var(--measure) + 2.5rem);
 }
 
-.contents .center,
-.contents.center p {
+.contents .center {
   margin-left: auto;
   margin-right: auto;
 }
@@ -338,7 +331,6 @@ h3 {
 }
 
 h3 a[title] {
-  text-decoration: none;
   margin-left: 0.6rem;
 }
 
