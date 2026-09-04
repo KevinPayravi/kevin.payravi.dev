@@ -17,6 +17,8 @@ build.sh        Build script
 cd build && python3 -m http.server 8000
 ```
 
+The build also renders the CV page to `build/docs/cv.pdf` and a shorter two-page `build/docs/resume.pdf`. This needs Chrome.
+
 ## Templates
 
 Use `data-template` attributes in your HTML:

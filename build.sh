@@ -18,6 +18,10 @@ echo "Cleaning build directory..."
 rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR"
 
+# When the CV last changed
+CV_UPDATED="$(git log -1 --format=%cd --date=format:'%B %Y' -- "$SRC_DIR/cv/index.html" 2>/dev/null || true)"
+CV_UPDATED="${CV_UPDATED:-$(date '+%B %Y')}"
+
 # Read template files
 echo "Loading templates..."
 TEMPLATE_FILES=()
@@ -88,7 +92,9 @@ process_file() {
     local -r active_section=$(get_nav_state "$src_file")
     
     # Read source file
-    local -r content=$(cat "$src_file")
+    local content
+    content=$(cat "$src_file")
+    content="${content//\{\{CV_UPDATED\}\}/$CV_UPDATED}"
     
     # Process head template
     local head_var="TEMPLATE_head"
@@ -181,6 +187,54 @@ for dir in "${STATIC_DIRS[@]}"; do
         echo "Copied: $dir/"
     fi
 done
+
+# Render the CV page to PDF
+build_cv_pdf() {
+    local chrome=""
+    local candidate
+    for candidate in "${CHROME_BIN:-}" google-chrome \
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"; do
+        if [[ -n "$candidate" ]] && command -v "$candidate" >/dev/null 2>&1; then
+            chrome="$candidate"
+            break
+        fi
+    done
+    if [[ -z "$chrome" ]]; then
+        echo "Error: CV PDF needs Chrome and none was found (set CHROME_BIN)" >&2
+        exit 1
+    fi
+
+    mkdir -p "$BUILD_DIR/docs"
+    local -r cv_dir="$(cd "$BUILD_DIR/cv" && pwd)"
+    local -r docs_dir="$(cd "$BUILD_DIR/docs" && pwd)"
+
+    # Prepare print-friendly version of CV
+    sed -e 's|<body>|<body class="resume">|' \
+        -e 's|<title>CV - Kevin Payravi</title>|<title>Résumé - Kevin Payravi</title>|' \
+        "$cv_dir/index.html" > "$cv_dir/resume-print.html"
+
+    # --no-sandbox: local file
+    local page out name
+    for name in cv resume; do
+        page="file://$cv_dir/index.html"
+        [[ "$name" == "resume" ]] && page="file://$cv_dir/resume-print.html"
+        out="$docs_dir/$name.pdf"
+        rm -f "$out"
+        "$chrome" --headless --disable-gpu --no-sandbox \
+            --no-pdf-header-footer --export-tagged-pdf --generate-pdf-document-outline \
+            --print-to-pdf="$out" "$page" >/dev/null 2>&1 || true
+        if [[ ! -s "$out" ]]; then
+            echo "Error: $name.pdf was not generated" >&2
+            exit 1
+        fi
+        echo "Built: $BUILD_DIR/docs/$name.pdf"
+    done
+    rm -f "$cv_dir/resume-print.html"
+}
+
+echo ""
+echo "Rendering CV PDF..."
+build_cv_pdf
 
 # Copy 404.html if it exists
 if [[ -f "404.html" ]]; then
