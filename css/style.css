@@ -2,11 +2,17 @@
   --vhs-yellow: #ffc629;
   --vhs-orange: #ff6b35;
   --vhs-red: #ff3855;
+  --vhs-magenta: #e0287a;
   --vhs-maroon: #a02040;
   --vhs-purple: #5c2751;
   --vhs-black: #1a1a1a;
   --paper-white: #f5f5f5;
   --link: var(--vhs-maroon);
+  --link-hover: var(--vhs-purple);
+  --link-hover-dark: var(--vhs-red);
+  --display-font: "Archivo", "Helvetica Neue", "Arial Narrow", Arial, sans-serif;
+  --stripe-thick: 0.5rem;
+  --stripe-thin: 0.25rem;
   --measure: 42.5rem;
   --card-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
   --fade: 0.15s ease;
@@ -21,8 +27,8 @@
     var(--vhs-orange) 40%,
     var(--vhs-red) 40%,
     var(--vhs-red) 60%,
-    var(--vhs-maroon) 60%,
-    var(--vhs-maroon) 80%,
+    var(--vhs-magenta) 60%,
+    var(--vhs-magenta) 80%,
     var(--vhs-purple) 80%,
     var(--vhs-purple) 100%
   );
@@ -35,8 +41,8 @@
     var(--vhs-orange) 40%,
     var(--vhs-red) 40%,
     var(--vhs-red) 60%,
-    var(--vhs-maroon) 60%,
-    var(--vhs-maroon) 80%,
+    var(--vhs-magenta) 60%,
+    var(--vhs-magenta) 80%,
     var(--vhs-purple) 80%,
     var(--vhs-purple) 100%
   );
@@ -49,6 +55,16 @@ html {
   background-color: var(--paper-white);
   margin: 0 auto;
   color: var(--vhs-black);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 p {
@@ -80,16 +96,20 @@ nav::after {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 0.5rem;
+  height: var(--stripe-thick);
   background: var(--vhs-gradient);
 }
 
 .nav-name {
   display: inline-block;
-  font-family: "Space Grotesk", "Inter", sans-serif;
-  font-size: 1.05em;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--display-font);
+  font-stretch: 75%;
+  font-size: 1.35em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   padding-right: 1.5rem;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   margin: 0.5em;
@@ -109,11 +129,13 @@ a.nav-link {
   transition: color var(--fade);
 }
 
-a.nav-link:hover {
-  color: var(--vhs-red);
+a.nav-link:hover,
+.nav-name:hover {
+  color: var(--link-hover-dark);
 }
 
-a.nav-link:active {
+a.nav-link:active,
+.nav-name:active {
   color: #ffffff;
 }
 
@@ -133,7 +155,7 @@ a {
 }
 
 a:hover {
-  color: var(--vhs-purple);
+  color: var(--link-hover);
   text-decoration-thickness: 2px;
 }
 
@@ -165,9 +187,12 @@ a:has(> i:first-child) {
 
 /* Utility Classes */
 .big-text {
-  font-size: 2em;
-  font-weight: 900;
-  letter-spacing: -0.025em;
+  font-family: var(--display-font);
+  font-stretch: 80%;
+  font-size: 2.4em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
 }
 
 .center {
@@ -259,7 +284,7 @@ a:has(> i:first-child) {
 }
 
 .fa-2x:hover {
-  color: var(--vhs-red);
+  color: var(--link-hover-dark);
 }
 
 /* Tool Tags */
@@ -283,9 +308,11 @@ a:has(> i:first-child) {
 /* Headings */
 h1 {
   color: var(--vhs-black);
-  font-size: 3.5em;
-  font-weight: 900;
-  letter-spacing: -0.05em;
+  font-family: var(--display-font);
+  font-stretch: 75%;
+  font-size: 4.5em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   margin: 0;
   line-height: 1;
@@ -294,9 +321,11 @@ h1 {
 h2,
 .page-title {
   color: var(--vhs-black);
-  font-size: 2.2em;
+  font-family: var(--display-font);
+  font-stretch: 80%;
+  font-size: 2.6em;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin: 2rem 0 1rem 0;
   text-transform: uppercase;
   position: relative;
@@ -317,7 +346,7 @@ h2::after,
   bottom: -0.3rem;
   left: 0;
   width: 100%;
-  height: 0.25rem;
+  height: var(--stripe-thin);
   background: var(--vhs-gradient);
 }
 
@@ -400,6 +429,32 @@ li::marker {
   line-height: 1.6;
 }
 
+/* Footer (black band with top stripe) */
+footer {
+  position: relative;
+  background: var(--vhs-black);
+  margin-top: 3rem;
+  padding: 2rem 1.25rem 1.5rem;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--stripe-thick);
+  background: var(--vhs-gradient);
+}
+
+footer .social-icons-compact {
+  margin: 0;
+}
+
+footer .fa-2x {
+  color: #ffffff;
+}
+
 /* Homepage sections */
 .home-section {
   max-width: 68.75rem;
@@ -410,6 +465,73 @@ li::marker {
 
 
 /* Homepage Hero */
+.home nav::after {
+  display: none;
+}
+
+.hero-band {
+  position: relative;
+  background: var(--vhs-black);
+  color: #ffffff;
+  padding-bottom: var(--stripe-thick);
+}
+
+.hero-band::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--stripe-thick);
+  background: var(--vhs-gradient);
+}
+
+.hero-band .hero-section {
+  margin-top: 0;
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.hero-band h1 {
+  color: #ffffff;
+}
+
+.hero-band .hero-tagline {
+  color: #ffffff;
+}
+
+.hero-band .fa-2x {
+  color: #ffffff;
+}
+
+.hero-band .fa-2x:hover {
+  color: var(--link-hover-dark);
+}
+
+.hero-band a.cta-primary {
+  background: var(--vhs-maroon);
+  border-color: var(--vhs-maroon);
+  color: #ffffff;
+}
+
+.hero-band a.cta-primary:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--vhs-black);
+}
+
+.hero-band a.cta-secondary {
+  background: transparent;
+  border-color: var(--vhs-magenta);
+  color: #ffffff;
+}
+
+.hero-band a.cta-secondary:hover {
+  background: var(--vhs-maroon);
+  border-color: var(--vhs-maroon);
+  color: #ffffff;
+}
+
 .hero-section {
   display: grid;
   grid-template-columns: 17.5rem 1fr;
@@ -526,7 +648,7 @@ a.cta-secondary:hover {
   top: 0;
   left: 0;
   right: 0;
-  height: 0.25rem;
+  height: var(--stripe-thin);
   background: var(--vhs-gradient);
 }
 
@@ -545,7 +667,7 @@ a.cta-secondary:hover {
 
 .project-grid h3 a:hover,
 .project-grid h3 a:focus-visible {
-  color: var(--vhs-red);
+  color: var(--link-hover);
 }
 
 .project-grid p {
@@ -589,13 +711,23 @@ a.cta-secondary:hover {
   }
 
   h1 {
-    font-size: 2.5em;
-    letter-spacing: -0.02em;
+    font-size: 3em;
+    letter-spacing: 0;
   }
 
   h2,
   .page-title {
-    font-size: 1.8em;
+    font-size: 2em;
+  }
+
+  .nav-name {
+    font-size: 1.25em;
+    margin-bottom: 0.75em;
+  }
+
+  .hero-band .hero-section {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .hero-section {
@@ -712,6 +844,14 @@ a.cta-secondary:hover {
 
   :root {
     --fa-display: none;
+  }
+
+  h1,
+  h2,
+  .page-title,
+  .big-text {
+    font-family: inherit;
+    font-stretch: normal;
   }
 
   nav,
