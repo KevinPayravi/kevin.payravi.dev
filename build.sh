@@ -104,16 +104,15 @@ process_file() {
     nav_replaced="${nav_replaced//\{\{BASE_PATH\}\}/$base_path}"
     nav_replaced="${nav_replaced//\{\{CSS_PATH\}\}/$css_path}"
     
-    # Set active nav states (clear all first)
+    # Mark the current section first, then clear other placeholders
+    if [[ "$active_section" != "NONE" ]]; then
+        nav_replaced="${nav_replaced//\{\{${active_section}_ACTIVE\}\}/selected\" aria-current=\"page}"
+    fi
+
     local -a nav_states=("HOME" "ABOUT" "CV" "PORTFOLIO" "RESOURCES" "CONTACT")
     for state in "${nav_states[@]}"; do
         nav_replaced="${nav_replaced//\{\{${state}_ACTIVE\}\}/}"
     done
-    
-    # Set the active state for current section
-    if [[ "$active_section" != "NONE" ]]; then
-        nav_replaced="${nav_replaced//\{\{${active_section}_ACTIVE\}\}/selected\" aria-current=\"page}"
-    fi
     export TEMPLATE_nav_PROCESSED="$nav_replaced"
     
     # Export template names list (space-separated)
