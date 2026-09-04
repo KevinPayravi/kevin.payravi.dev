@@ -139,6 +139,11 @@ process_file() {
             s|<$tag[^>]*data-template=["'"'"']$name["'"'"'][^>]*>.*?</$tag>|$template_content|gs;
         }
     ' > "$dest_file"
+
+    # Inline stylesheet for 404.html
+    if [[ "$src_file" == "$SRC_DIR/404.html" ]]; then
+        CSS_CONTENT="$(cat css/style.css)" perl -0pi -e 's|<link rel="stylesheet" type="text/css" href="/css/style.css" />|<style>\n$ENV{CSS_CONTENT}\n</style>|' "$dest_file"
+    fi
     
     echo "Built: $dest_file"
 }
